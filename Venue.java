@@ -9,7 +9,7 @@ public class Venue
 {
    private Scoreboard score;
    private Car[] racers;
-   private int[][] stops;
+   private Stop[] stops;
    private int gridLength;
    private int gridWidth;
    
@@ -22,7 +22,6 @@ public class Venue
    }
    public Venue(int l, int w, int num)
    {
-       stops = new int[num][2];
        gridLength = l;
        gridWidth = w;
        setStops();
@@ -44,10 +43,14 @@ public class Venue
    public void setStops()
    {
        Random rand = new Random();
+       char[] label = new char[4];
+       label[0] = 'A';
+       label[1] = 'B';
+       label[2] = 'C';
+       label[3] = 'D';
        for (int i = 0; i < stops.length; i++)
        {
-           stops[i][0] = rand.nextInt(gridLength);
-           stops[i][1] = rand.nextInt(gridWidth);
+           Stop[i] = new Stop(label[i], gridWidth, gridLength);
        }
    }
    /**
