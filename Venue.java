@@ -8,7 +8,7 @@ import java.util.*;
 public class Venue
 {
    private Scoreboard score;
-   private Car[] racers;
+   public Car[] racers;
    private Stop[] stops;
    private int gridLength;
    private int gridWidth;
@@ -20,23 +20,31 @@ public class Venue
    {
        this(100, 100, 4);
    }
+   
    public Venue(int l, int w, int num)
    {
        gridLength = l;
        gridWidth = w;
        setStops();
    }
+   
    /**
     * Returns a set of coordinates for a stop
     */
-   public int[] getStopPoint(int s)
+   public Stop getStopPoint(int s)
    {
         return stops[s];
    }
+   
    public Car getRacer(int c)
    {
        return racers[c];
    }
+   
+   public int totalRacers(){
+       return racers.length;
+    }
+   
    /**
     * Sets all the stops in the stops array
     */
@@ -50,23 +58,26 @@ public class Venue
        label[3] = 'D';
        for (int i = 0; i < stops.length; i++)
        {
-           Stop[i] = new Stop(label[i], gridWidth, gridLength);
+           stops[i] = new Stop(label[i], gridWidth, gridLength);
        }
    }
+   
    /**
     * addRacer adds a car to the racer array
     */
    public void addRacer(Car c)
    {
-       racers.add(c);
+       //racers.add(c);
    }
+   
    /**
     * removeRacer removes a car from the racer array
     */
    public void removeRacer(int index)
    {
-       racers[index].remove();
+       //racers[index].remove();
    }
+   
    /**
     * Returns the scoreboard
     */
@@ -74,6 +85,7 @@ public class Venue
    {
        return score;
    }
+   
    public void updateScore()
    {
        

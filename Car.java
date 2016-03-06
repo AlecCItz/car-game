@@ -18,8 +18,8 @@ public class Car
     //currentTimeMillis also possibility
     public Car()
     {
-        distance = 30;
-        speed = 50;
+        distance = 0;
+        speed = 0;
         drive();
     }
     
@@ -33,7 +33,7 @@ public class Car
     private void drive(){
         long timeElapsed = 0;
         timeElapsed = System.nanoTime();
-        double seconds = TimeUnit.NANOSECONDS.toSeconds(time);
+        double seconds = TimeUnit.NANOSECONDS.toSeconds(timeElapsed);
         if(distance == (speed/60)*seconds){
             totalTime = totalTime + seconds;
             totalDistance = totalDistance + distance;
@@ -55,10 +55,10 @@ public class Car
     }
 
     public int getDistance(){
-        return distance;
+        return totalDistance;
     }
 
-    public long getTime(){
+    public double getTime(){
         return totalTime;
     }
     
