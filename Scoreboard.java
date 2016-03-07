@@ -14,15 +14,19 @@ public class Scoreboard
      */
     public Scoreboard()
     {
+        this(new Venue());
+    }
+    public Scoreboard(Venue v)
+    {
        topCarSpeed = new Car();
-       topCarDistance = new Car();
-       venue = new Venue();
+       topCarDistance = new Car(); 
+       venue = v;
     }
 
     public void determineSpeedPlacement(){
         for(int i = 0;  venue.totalRacers() > i; i++){
-            if(venue.racers[i].getSpeed() > topCarSpeed.getSpeed()){
-                topCarSpeed = venue.racers[i];
+            if(venue.getRacers()[i].getSpeed() > topCarSpeed.getSpeed()){
+                topCarSpeed = venue.getRacers()[i];
             }
         }
     }
@@ -33,8 +37,8 @@ public class Scoreboard
     
     public void determineDistancePlacement(){
         for(int i = 0;  venue.totalRacers() > i; i++){
-            if(venue.racers[i].getDistance() > topCarSpeed.getDistance()){
-                topCarDistance = venue.racers[i];
+            if(venue.getRacers()[i].getDistance() > topCarSpeed.getDistance()){
+                topCarDistance = venue.getRacers()[i];
             }
         }
     }
