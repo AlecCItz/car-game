@@ -8,7 +8,7 @@ import java.util.*;
 public class Venue
 {
    private Scoreboard score;
-   public Car[] racers;
+   private Car[] racers;
    private Stop[] stops;
    private int gridLength;
    private int gridWidth;
@@ -60,6 +60,14 @@ public class Venue
        {
            stops[i] = new Stop(label[i], gridWidth, gridLength);
        }
+   }
+   
+   /**
+    * Returns all the racers
+    */
+   public Car[] getRacers()
+   {
+       return racers;
    }
    
    /**
